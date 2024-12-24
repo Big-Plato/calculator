@@ -6,36 +6,42 @@ const number = numbers.querySelectorAll('.number');
 const operators = container.querySelector('.operators');
 const operator = operators.querySelectorAll('.operator');
 
-const firstOperand = null;
-const secondOperand = null;
+let operatorsOf = ['+','-','/','*'];
 
-console.log(number)
+let firstOperand = null;
+let lastOperand = null;
+
+for (let i = 0; i < number.length; i++) {
+    number[i].addEventListener('click', function (e) {
+        result.textContent += e.target.dataset.number;
 
 
-const clickedNumber = number.forEach(number => {
-    number.addEventListener("click", (e) => {
-        const numberOf = e.target.dataset.number;
-        if (e.target.id !== 'erase') {
-            result.textContent += numberOf;
-        } else {
-            result.textContent = "";
+        firstOperand = result.textContent;
+        if (result.textContent === '+' 
+            || result.textContent === '-'
+            || result.textContent === '/'
+            || result.textContent === '*') {
+            
         }
-        
     })
-})
+}
 
-
-
-
-const operatorClicked = operator.forEach(operator => {
-    operator.addEventListener("click", (e) => {
+for (let i = 0; i < operator.length; i++) {
+    operator[i].addEventListener('click', (e) => {
         const operation = e.target.dataset.key;
-        result.textContent += operation;
-    })
-})
 
-if (operatorClicked) {
-    console.log("YES")
+        if (operation === '+') {
+            add(firstOperand, lastOperand);
+        } else if (operation === '-') {
+            subtract(firstOperand, lastOperand);
+        } else if (operation === '/') {
+            divide(firstOperand, lastOperand);
+        } else if (operation === '*') {
+            multiply(firstOperand, lastOperand);
+        } else {
+            
+        }
+    })
 }
 
 function operate (a, op, b) {
