@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    border: 0;
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 100px;
+}
+
+.container {
+    background-color: gray;
+    width: 300px;
+    height: 400px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 5px 0px black;
+}
+
+.result {
+    width: 90%;
+    height: 40px;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+}
