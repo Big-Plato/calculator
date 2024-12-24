@@ -1,6 +1,6 @@
 :root {
     --main: darkcyan;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
 }
 
@@ -33,6 +33,7 @@ body {
     margin: auto;
     margin-top: 10px;
     border: 2px solid black;
+    text-align: end;
 }
 
 .numbers {
@@ -88,4 +89,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
+
+
+
