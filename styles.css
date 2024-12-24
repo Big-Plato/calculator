@@ -11,16 +11,49 @@ body {
 
 .container {
     background-color: gray;
-    width: 300px;
+    width: 350px;
     height: 400px;
     border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     box-shadow: 0px 0px 5px 0px black;
 }
 
 .result {
-    width: 90%;
-    height: 40px;
+    width: 95%;
+    height: 60px;
     background-color: white;
     margin: auto;
     margin-top: 10px;
+    border: 2px solid black;
+}
+
+.numbers {
+    width: 60%;
+    background-color: aliceblue;
+    height: 70%;
+    position: relative;
+    left: 12px;
+    top: 5px;
+    margin: 0px 2px 2px 2px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 5px;
+}
+
+.number {
+    width: 50px;
+    height: 30px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.operators {
+    width: 20%;
+    height: 60%;
+    background-color: aliceblue;
+    position: relative;
+    left: 10px;
 }
