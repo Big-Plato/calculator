@@ -12,34 +12,41 @@ let firstOperand = null;
 let lastOperand = null;
 let operation = null;
 
+let regOp = /[^0-9]/g;
+
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', (e) => {
         const numberOf = e.target.dataset.number;
-        console.log(numberOf)
+        console.log(numberOf);
         if (numberOf === 'erase') {
-            result.innerHTML = '';
+            result.textContent = '';
         } else {
-            result.innerHTML += numberOf;
+            result.textContent += numberOf;
         }
 
-        firstOperand = result.textContent.slice(0, 2);
-        lastOperand = result.textContent.slice(3, result.length);
-        operation = result.textContent.slice(2, 3)
-        console.log(firstOperand)     
-        console.log(lastOperand)
-        console.log(operation);
+        let resultParts;
+        if (result.textContent.includes('+')) {
+            resultParts = result.textContent.split('+');
+            operation = '+';
+            console.log(resultParts)
+        } else if (result.textContent.includes('-')) {
+            resultParts = result.textContent.split('-');
+            operation = '-';
+        } else if (result.textContent.includes('*')) {
+            resultParts = result.textContent.split('*');
+            operation = '*';
+        } else if (result.textContent.includes('/')) {
+            resultParts = result.textContent.split('/');
+            operation = '/';
+        }
 
         equalBtn.addEventListener('click', () => {
             
             console.log("shit")
-            result.textContent = operate(firstOperand, operation, lastOperand);;
+            result.textContent = operate(resultParts[0], operation, resultParts[1]);
         })
         
     })
-}
-
-const btnCalc = () => {
-
 }
 
 for (let i = 0; i < operator.length; i++) {
