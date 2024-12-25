@@ -10,8 +10,7 @@ const equalBtn = document.getElementById("equal");
 let firstOperand = null;
 let lastOperand = null;
 let operation = null;
-const numerical = "123456789";
-const operatorsString = "+-/*"
+const numerical = "0123456789";
 
 for (let i = 0; i < number.length; i++) {
   number[i].addEventListener("click", (e) => {
@@ -20,7 +19,7 @@ for (let i = 0; i < number.length; i++) {
     if (numberOf === "erase") {
       result.textContent = "";
     } else if (numberOf === "decimal") {
-      result.textContent += '.';
+      result.textContent += ".";
     } else {
       result.textContent += numberOf;
     }
@@ -44,11 +43,30 @@ for (let i = 0; i < number.length; i++) {
       operation = "/";
     }
     equalBtn.addEventListener("click", () => {
-      console.log("shit");
-      result.textContent = operate(resultParts[0], operation, resultParts[1]);
-    });
+        console.log("shit");
+        result.textContent = operate(resultParts[0], operation, resultParts[1]);
+      });
   });
 }
+
+
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "+") {
+      result.textContent += "+";
+    } else if (e.key === "-") {
+      result.textContent += "-";
+    } else if (e.key === "*") {
+      result.textContent += "*";
+    } else if (e.key === "/") {
+      result.textContent += "/";
+    } else if (e.key === 13) {
+      console.log(e.key)
+    }
+
+    let keyResult = result.textContent;
+    
+  });
 //Backspace function
 document.addEventListener("keydown", (e) => {
   if (e.code === "Backspace") {
@@ -56,10 +74,33 @@ document.addEventListener("keydown", (e) => {
       0,
       result.textContent.length - 1
     );
-  } else if (e.code !== "Backspace" && !e.code.includes(numerical)) {
-    console.log(e.code);
-    result.textContent += `${e.code.slice(5)}`;
+  } 
+  if (numerical.includes(e.key)) {
+    result.textContent += e.key;
   }
+
+  let resultParts;
+    if (result.textContent.includes("+")) {
+      result.textContent = result.textContent.replace(/\+\+/gi, "+");
+      resultParts = result.textContent.split("+");
+      operation = "+";
+    } else if (result.textContent.includes("-")) {
+      result.textContent = result.textContent.replace(/\-\-/gi, "-");
+      resultParts = result.textContent.split("-");
+      operation = "-";
+    } else if (result.textContent.includes("*")) {
+      result.textContent = result.textContent.replace(/\*\*/gi, "*");
+      resultParts = result.textContent.split("*");
+      operation = "*";
+    } else if (result.textContent.includes("/")) {
+      result.textContent = result.textContent.replace(/\/\//gi, "/");
+      resultParts = result.textContent.split("/");
+      operation = "/";
+    }
+
+    if (e.code === 'Enter') {
+        result.textContent = operate(resultParts[0], operation, resultParts[1]);
+    }
 });
 
 for (let i = 0; i < operator.length; i++) {
@@ -68,6 +109,8 @@ for (let i = 0; i < operator.length; i++) {
     result.textContent += operateOf;
   });
 }
+
+
 
 //Functions to make the operations
 function add(a, b) {
