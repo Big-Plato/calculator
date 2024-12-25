@@ -10,6 +10,8 @@ const equalBtn = document.getElementById("equal");
 let firstOperand = null;
 let lastOperand = null;
 let operation = null;
+const numerical = "123456789";
+const operatorsString = "+-/*"
 
 for (let i = 0; i < number.length; i++) {
   number[i].addEventListener("click", (e) => {
@@ -47,7 +49,6 @@ for (let i = 0; i < number.length; i++) {
     });
   });
 }
-
 //Backspace function
 document.addEventListener("keydown", (e) => {
   if (e.code === "Backspace") {
@@ -55,6 +56,9 @@ document.addEventListener("keydown", (e) => {
       0,
       result.textContent.length - 1
     );
+  } else if (e.code !== "Backspace" && !e.code.includes(numerical)) {
+    console.log(e.code);
+    result.textContent += `${e.code.slice(5)}`;
   }
 });
 
