@@ -26,20 +26,22 @@ for (let i = 0; i < number.length; i++) {
 
         let resultParts;
         if (result.textContent.includes('+')) {
+            result.textContent = result.textContent.replace(/\+\+/gi, "+");
             resultParts = result.textContent.split('+');
             operation = '+';
-            console.log(resultParts)
         } else if (result.textContent.includes('-')) {
+            result.textContent = result.textContent.replace(/\-\-/gi, "-");
             resultParts = result.textContent.split('-');
             operation = '-';
         } else if (result.textContent.includes('*')) {
+            result.textContent = result.textContent.replace(/\*\*/gi, "*");
             resultParts = result.textContent.split('*');
             operation = '*';
         } else if (result.textContent.includes('/')) {
+            result.textContent = result.textContent.replace(/\/\//gi, "/");
             resultParts = result.textContent.split('/');
             operation = '/';
         }
-
         equalBtn.addEventListener('click', () => {
             
             console.log("shit")
@@ -48,6 +50,12 @@ for (let i = 0; i < number.length; i++) {
         
     })
 }
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Backspace') {
+        result.textContent = result.textContent.slice(0, result.textContent.length - 1);
+    }
+} )
 
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', (e) => {
@@ -76,6 +84,7 @@ function divide (a, b) {
 function operate (n1, operator, n2) {
     let num1 = parseFloat(n1);
     let num2 = parseFloat(n2);
+
     if (operator === '+') {
         return add(num1, num2);
     }
