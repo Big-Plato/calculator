@@ -57,7 +57,7 @@ body {
 }
 
 .number:last-child {
-    width: 65%;
+    background-color: rgb(196, 63, 63);
 }
 
 .operators {
