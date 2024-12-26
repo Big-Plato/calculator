@@ -43,30 +43,27 @@ for (let i = 0; i < number.length; i++) {
       operation = "/";
     }
     equalBtn.addEventListener("click", () => {
-        console.log("shit");
-        result.textContent = operate(resultParts[0], operation, resultParts[1]);
-      });
+      console.log("shit");
+      result.textContent = operate(resultParts[0], operation, resultParts[1]);
+    });
   });
 }
 
-
-
 document.addEventListener("keydown", (e) => {
-    if (e.key === "+") {
-      result.textContent += "+";
-    } else if (e.key === "-") {
-      result.textContent += "-";
-    } else if (e.key === "*") {
-      result.textContent += "*";
-    } else if (e.key === "/") {
-      result.textContent += "/";
-    } else if (e.key === 13) {
-      console.log(e.key)
-    }
+  if (e.key === "+") {
+    result.textContent += "+";
+  } else if (e.key === "-") {
+    result.textContent += "-";
+  } else if (e.key === "*") {
+    result.textContent += "*";
+  } else if (e.key === "/") {
+    result.textContent += "/";
+  } else if (e.key === 13) {
+    console.log(e.key);
+  }
 
-    let keyResult = result.textContent;
-    
-  });
+  let keyResult = result.textContent;
+});
 //Backspace function
 document.addEventListener("keydown", (e) => {
   if (e.code === "Backspace") {
@@ -74,33 +71,33 @@ document.addEventListener("keydown", (e) => {
       0,
       result.textContent.length - 1
     );
-  } 
+  }
   if (numerical.includes(e.key)) {
     result.textContent += e.key;
   }
 
   let resultParts;
-    if (result.textContent.includes("+")) {
-      result.textContent = result.textContent.replace(/\+\+/gi, "+");
-      resultParts = result.textContent.split("+");
-      operation = "+";
-    } else if (result.textContent.includes("-")) {
-      result.textContent = result.textContent.replace(/\-\-/gi, "-");
-      resultParts = result.textContent.split("-");
-      operation = "-";
-    } else if (result.textContent.includes("*")) {
-      result.textContent = result.textContent.replace(/\*\*/gi, "*");
-      resultParts = result.textContent.split("*");
-      operation = "*";
-    } else if (result.textContent.includes("/")) {
-      result.textContent = result.textContent.replace(/\/\//gi, "/");
-      resultParts = result.textContent.split("/");
-      operation = "/";
-    }
+  if (result.textContent.includes("+")) {
+    result.textContent = result.textContent.replace(/\+\+/gi, "+");
+    resultParts = result.textContent.split("+");
+    operation = "+";
+  } else if (result.textContent.includes("-")) {
+    result.textContent = result.textContent.replace(/\-\-/gi, "-");
+    resultParts = result.textContent.split("-");
+    operation = "-";
+  } else if (result.textContent.includes("*")) {
+    result.textContent = result.textContent.replace(/\*\*/gi, "*");
+    resultParts = result.textContent.split("*");
+    operation = "*";
+  } else if (result.textContent.includes("/")) {
+    result.textContent = result.textContent.replace(/\/\//gi, "/");
+    resultParts = result.textContent.split("/");
+    operation = "/";
+  }
 
-    if (e.code === 'Enter') {
-        result.textContent = operate(resultParts[0], operation, resultParts[1]);
-    }
+  if (e.code === "Enter") {
+    result.textContent = operate(resultParts[0], operation, resultParts[1]);
+  }
 });
 
 for (let i = 0; i < operator.length; i++) {
@@ -109,8 +106,6 @@ for (let i = 0; i < operator.length; i++) {
     result.textContent += operateOf;
   });
 }
-
-
 
 //Functions to make the operations
 function add(a, b) {

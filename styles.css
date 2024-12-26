@@ -34,6 +34,7 @@ body {
     margin-top: 10px;
     border: 2px solid black;
     text-align: end;
+    font-size: 1.5rem;
 }
 
 .numbers {
@@ -97,5 +98,8 @@ body {
     transform: translateY(4px);
 }
 
+.number, .operator, .result,.container {
+    border-radius: 10px;
+}
 
 
