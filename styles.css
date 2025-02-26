@@ -7,7 +7,7 @@
 body {
     margin: 0;
     border: 0;
-    background-color: purple;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,9 +16,9 @@ body {
 }
 
 .container {
-    background-color: var(--main);
+    background-color: gray;
     width: 350px;
-    height: 450px;
+    height: 500px;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@ body {
 
 .result {
     width: 90%;
-    height: 60px;
+    height: 80px;
     background-color: white;
     margin: auto;
     margin-top: 10px;
