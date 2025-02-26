@@ -108,6 +108,26 @@ for (let i = 0; i < operator.length; i++) {
 }
 
 //Functions to make the operations
+function operateNums(a, b) {
+  const add = () => {
+    return a + b;
+  }
+
+  const subtract = () => {
+    return a - b;
+  }
+
+  const multiply = () => {
+    return a * b;
+  }
+
+  const divide = () => {
+    return a / b;
+  }
+
+  return { add, subtract, multiply, divide }
+}
+
 function add(a, b) {
   return a + b;
 }
@@ -128,16 +148,18 @@ function operate(n1, operator, n2) {
   let num1 = parseFloat(n1);
   let num2 = parseFloat(n2);
 
+  const operate = operateNums();
+
   if (operator === "+") {
-    return add(num1, num2);
+    operate.add(num1, num2);
   }
   if (operator === "-") {
-    return subtract(num1, num2);
+    operate.subtract(num1, num2);
   }
   if (operator === "*") {
-    return multiply(num1, num2);
+    operate.multiply(num1, num2);
   }
   if (operator === "/") {
-    return divide(num1, num2);
+    operate.divide(num1, num2);
   }
 }
